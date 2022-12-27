@@ -70,7 +70,6 @@ h6 {
 }
 
 body {
-  font-style: normal;
   font-weight: 400;
 }
 
@@ -128,7 +127,7 @@ body {
   display: -ms-inline-flexbox;
   display: inline-flex;
   padding: 1rem 2.5rem;
-  border: 1px solid #111111;
+  border: 0.0625rem solid #111111;
   border-radius: 1rem;
   font-size: 1.125rem;
   line-height: 1.3333333333;
@@ -158,7 +157,7 @@ textarea {
 
 textarea.input {
   resize: none;
-  padding: 0px 0px;
+  padding: 0 0;
 }
 
 .select {
@@ -457,7 +456,55 @@ textarea.input {
 }
 
 .icon-menu {
-  display: none;
+  display: block;
+  position: relative;
+  width: 1.875rem;
+  height: 1.125rem;
+  z-index: 5;
+}
+
+.icon-menu span,
+.icon-menu::before,
+.icon-menu::after {
+  content: "";
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  right: 0;
+  position: absolute;
+  width: 100%;
+  height: 0.125rem;
+  background-color: #111111;
+}
+
+.icon-menu::before {
+  top: 0;
+}
+
+.icon-menu::after {
+  bottom: 0;
+}
+
+.icon-menu span {
+  top: calc(50% - 0.0625rem);
+}
+
+.menu-open .icon-menu span {
+  width: 0;
+}
+
+.menu-open .icon-menu::before {
+  top: calc(50% - 0.0625rem);
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.menu-open .icon-menu::after {
+  bottom: calc(50% - 0.0625rem);
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .footer__top {
@@ -677,8 +724,8 @@ textarea.input {
   padding: 2.5rem 3.5rem;
   max-width: 27.25rem;
   background-color: #FFFFFF;
-  border: 1px solid #E5E5E5;
-  border-radius: 24px 0px 0px 0px;
+  border: 0.0625rem solid #E5E5E5;
+  border-radius: 1.5rem 0 0 0;
   line-height: 1.375;
 }
 
@@ -765,7 +812,7 @@ textarea.input {
   position: absolute;
   padding: 3rem 3.5rem;
   background-color: #FFFFFF;
-  border: 1px solid #E5E5E5;
+  border: 0.0625rem solid #E5E5E5;
   border-radius: 1.5rem;
 }
 
@@ -794,8 +841,8 @@ textarea.input {
 .contact-block__form {
   padding: 5rem 3rem;
   background-color: rgba(17, 17, 17, 0.72);
-  -webkit-backdrop-filter: blur(8px);
-          backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(0.5rem);
+          backdrop-filter: blur(0.5rem);
   border-radius: 1.5rem;
   float: right;
 }
@@ -814,10 +861,12 @@ textarea.input {
 .contact-block .select {
   width: 100%;
   padding: 0;
+  padding-left: 0.1875rem;
   background: none;
-  border-bottom: 1px solid #FFFFFF;
+  border-bottom: 0.0625rem solid #FFFFFF;
   font-size: 1.25rem;
   line-height: 1.35;
+  color: #FFFFFF;
 }
 
 .contact-block .input:not(:last-child),
@@ -1829,66 +1878,6 @@ button.swiper-pagination-bullet {
   }
 }
 
-@media (max-width: 240rem) {
-  .icon-menu {
-    display: block;
-    position: relative;
-    width: 1.875rem;
-    height: 1.125rem;
-    z-index: 5;
-  }
-
-  .icon-menu span,
-  .icon-menu::before,
-  .icon-menu::after {
-    content: "";
-    -webkit-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s;
-    right: 0;
-    position: absolute;
-    width: 100%;
-    height: 0.125rem;
-    background-color: #000;
-  }
-
-  .icon-menu::before {
-    top: 0;
-  }
-
-  .icon-menu::after {
-    bottom: 0;
-  }
-
-  .icon-menu span {
-    top: calc(50% - 0.0625rem);
-  }
-
-  .menu-open .icon-menu span {
-    width: 0;
-  }
-
-  .menu-open .icon-menu::before {
-    top: calc(50% - 0.0625rem);
-    -webkit-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-  }
-
-  .menu-open .icon-menu::after {
-    bottom: calc(50% - 0.0625rem);
-    -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
-  }
-}
-
-@media (max-width: 240rem) and (any-hover: none) {
-  .icon-menu {
-    cursor: default;
-  }
-}
-
 @media (max-width: 61.99875em) {
   .button {
     width: 100%;
@@ -1956,7 +1945,7 @@ button.swiper-pagination-bullet {
   .header__btn {
     width: 13.75rem;
     background-color: #111111;
-    border: 1px solid #FFFFFF;
+    border: solid #FFFFFF;
     color: #FFFFFF;
   }
 
@@ -2256,7 +2245,7 @@ button.swiper-pagination-bullet {
 
 @media (any-hover: hover) {
   .button:hover {
-    border: 1px solid darkgoldenrod;
+    border: 0.0625rem solid darkgoldenrod;
     color: darkgoldenrod;
   }
 
@@ -2278,6 +2267,12 @@ button.swiper-pagination-bullet {
 
   .menu-footer__link:hover {
     color: darkgoldenrod;
+  }
+}
+
+@media (any-hover: none) {
+  .icon-menu {
+    cursor: default;
   }
 }
 
